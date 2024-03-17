@@ -1,0 +1,7 @@
+Simple query example for manu to many join ............
+SELECT u.username, u.email, p.permission_id, p.permission_name, p.description
+FROM User u
+JOIN User_Permission up ON u.user_id = up.user_id
+JOIN Permission p ON up.permission_id = p.permission_id
+WHERE u.user_id = <user_id>;
+.........................................................

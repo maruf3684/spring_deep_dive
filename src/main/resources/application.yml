@@ -2,15 +2,30 @@ server:
   port: 8000
 spring:
   datasource:
+    #PostgreSQLs connection settings
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/universal_auth
     username: maruf
     password: maruf15-1927@
+    # HikariCP settings
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      max-lifetime: 2000000
+      connection-timeout: 30000
+      pool-name: HikariPoolCyber
+    # JPA settings
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: update
-    show-sql: true
-  security:
-    user:
-      name: maruf
-      password: maruf
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        generate_statistics: false
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 15
+          fetch_size: 15
