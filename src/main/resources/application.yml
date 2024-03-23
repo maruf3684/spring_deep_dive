@@ -1,16 +1,11 @@
 server:
   port: 8000
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/universal_auth
-    username: maruf
-    password: maruf15-1927@
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-  security:
-    user:
-      name: maruf
-      password: maruf
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: chat_app
+      authentication-database: admin
+
+
