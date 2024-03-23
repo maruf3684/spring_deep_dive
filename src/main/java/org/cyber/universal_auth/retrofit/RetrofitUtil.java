@@ -20,7 +20,7 @@ public class RetrofitUtil {
         //builder.retryOnConnectionFailure(true); // Enable retries on connection failures
         //builder.sslSocketFactory(sslSocketFactory, trustManager); // Example: Configure SSL socket factory
         //builder.connectionPool(new ConnectionPool(5, 10, TimeUnit.MINUTES)); // Example: Configure connection pool
-        //builder.proxy(proxy); // Example: Configure proxy
+        //builder.proxy(proxy); // Example: Configure proxyy
         return builder.build();
     }
 
