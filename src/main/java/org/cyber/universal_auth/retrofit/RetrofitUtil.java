@@ -24,18 +24,15 @@ public class RetrofitUtil {
         return builder.build();
     }
 
-    public static Retrofit getClient(){
-        if(retrofit==null){
-            OkHttpClient okHttpClient = createOkHttpClient();
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS,false);
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(RetrofitConstant.JsonPlaceholderBaseUrl)
-                    .addConverterFactory(JacksonConverterFactory.create(mapper))
-                    .client(okHttpClient).build();
-            return retrofit;
-        }
+    public static Retrofit getClient(String BASE_URL){
+        OkHttpClient okHttpClient = createOkHttpClient();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS,false);
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(JacksonConverterFactory.create(mapper))
+                .client(okHttpClient).build();
         return retrofit;
     }
 }

@@ -2,6 +2,7 @@ package org.cyber.universal_auth.service;
 
 import org.cyber.universal_auth.api.JsonPlaceholderApi;
 import org.cyber.universal_auth.dto.Post;
+import org.cyber.universal_auth.retrofit.RetrofitConstant;
 import org.cyber.universal_auth.retrofit.RetrofitUtil;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
@@ -18,7 +19,7 @@ public class PostService {
     private JsonPlaceholderApi jsonPlaceholderApi;
 
     public  PostService(){
-        retrofit = RetrofitUtil.getClient();
+        retrofit = RetrofitUtil.getClient(RetrofitConstant.JsonPlaceholderBaseUrl);
         jsonPlaceholderApi = retrofit.create(JsonPlaceholderApi.class); //interface er class banaiye dei
     }
     public List<Post> getAllPost(){
